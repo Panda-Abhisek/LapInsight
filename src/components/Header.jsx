@@ -9,10 +9,38 @@ export default function Header() {
       </Link>
       <nav>
         <ul className="flex space-x-6">
-          <li><Link href="/compare" className="hover:text-purple-700 transition-colors">Compare</Link></li>
-          <li><Link href="/find-laptops" className="hover:text-purple-700 transition-colors">Find Laptops</Link></li>
-          <li><Link href="/features" className="hover:text-purple-700 transition-colors">Features</Link></li>
-          <li><Link href="/recommendation" className="hover:text-purple-700 transition-colors">Recommendation</Link></li>
+          <li>
+            <Link 
+              href="/compare" 
+              className="text-white hover:text-purple-700 transition-colors"
+            >
+              Compare
+            </Link>
+          </li>
+          <li>
+            <Link 
+              href="/find-laptops" 
+              className="text-white hover:text-purple-700 transition-colors"
+            >
+              Find Laptops
+            </Link>
+          </li>
+          <li>
+            <Link 
+              href="/features" 
+              className="text-white hover:text-purple-700 transition-colors"
+            >
+              Features
+            </Link>
+          </li>
+          <li>
+            <Link 
+              href="/recommendation" 
+              className="text-white hover:text-purple-700 transition-colors"
+            >
+              Recommendation
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>

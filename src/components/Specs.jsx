@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 
-export default function Compare() {
+export default function Specs() {
   return (
     <section className="bg-black py-20 px-6">
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between">
