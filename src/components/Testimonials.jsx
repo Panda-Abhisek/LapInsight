@@ -13,7 +13,7 @@ export default function Testimonials() {
             <Image src="/Review1.png" alt="John Doe" width={64} height={64} className="rounded-full mr-4" />
             <div className="text-left">
               <p className="font-semibold">John Doe</p>
-              <p className="text-purple-300">Web Developer</p>
+              <p className="text-purple-400">Web Developer</p>
             </div>
           </div>
         </div>

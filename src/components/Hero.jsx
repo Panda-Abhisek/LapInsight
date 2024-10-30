@@ -9,7 +9,7 @@ export default function Hero() {
         <div className="max-w-xl">
           <h1 className="text-5xl font-bold mb-4 text-white">Find Your Perfect Laptop at the Best Price</h1>
           <p className="text-xl mb-8 text-gray-300">Compare the latest options and make an informed decision.</p>
-          <button className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-full transition-colors">
+          <button className="bg-purple-700 hover:bg-purple-800 text-white font-bold py-3 px-6 rounded-full transition-colors">
             Learn More
           </button>
         </div>
@@ -17,9 +17,9 @@ export default function Hero() {
         {/* Image with Blur Background */}
         <div className="relative hidden lg:block">
           {/* Purple Blur */}
-          <div className="absolute -top-10 -right-10 w-[500px] h-[500px] bg-[#7e22ce] rounded-full blur-3xl opacity-50"></div>
+          <div className="absolute -top-5 -right-5 w-[500px] h-[500px] bg-[#7e22ce] rounded-full blur-3xl opacity-50" style={{ zIndex: 1 }}></div>
           {/* Laptop Image */}
-          <Image src="/mac.png" alt="Laptop" width={500} height={300} />
+          <Image src="/mac.png" alt="Laptop" width={500} height={300} style={{ zIndex: 2, position: 'relative' }}/>
         </div>
       </div>
     </section>

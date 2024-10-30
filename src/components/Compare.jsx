@@ -18,7 +18,7 @@ export default function Compare() {
               <p>Our laptops combine style with functionality, featuring sleek designs that are perfect for any setting.</p>
             </div>
           </div>
-          <button className="mt-8 bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-full transition-colors">
+          <button className="mt-8 bg-purple-700 hover:bg-purple-800 text-white font-bold py-3 px-6 rounded-full transition-colors">
             Learn More
           </button>
         </div>
