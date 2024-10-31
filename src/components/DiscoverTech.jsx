@@ -4,7 +4,7 @@ import Image from 'next/image'
 export default function DiscoverTech() {
   return (
     <section className="bg-black py-20 px-6">
-      <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between">
+      <div className="max-w-4xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between">
         <div className="lg:w-1/2 mt-10 lg:mt-0">
           <Image src="/Innovate.png" alt="Future Technology" width={600} height={400} className="object-cover" />
         </div>

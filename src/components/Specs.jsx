@@ -4,7 +4,7 @@ import Image from 'next/image'
 export default function Specs() {
   return (
     <section className="bg-black py-20 px-6">
-      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between">
+      <div className="max-w-4xl mx-auto flex flex-col lg:flex-row items-center justify-between">
         <div className="max-w-xl mb-10 lg:mb-0">
           <h2 className="text-4xl font-bold mb-6">Discover the Perfect Laptop for You</h2>
           <p className="text-lg mb-8">Our laptops offer a range of benefits, making them the ideal choice for any user. From powerful processors to ample storage, we have the perfect laptop to meet your needs.</p>
