@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export default function Specs() {
   return (
-    <section className="bg-black py-20 px-6">
+    <section className="bg-gradient-to-b from-purple-900/20 to-purple-900/20 py-20 px-6">
       <div className="max-w-4xl mx-auto flex flex-col lg:flex-row items-center justify-between">
         <div className="max-w-xl mb-10 lg:mb-0">
           <h2 className="text-4xl sm:text-4xl md:text-5xl font-bold mb-6">Discover the Perfect Laptop for You</h2>

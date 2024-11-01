@@ -32,7 +32,7 @@ function FAQItem({ question, answer }) {
   return (
     <div className="border-b border-purple-700">
       <button
-        className="flex justify-between w-full px-4 py-3 text-left text-white bg-black hover:bg-purple-800 focus:outline-none"
+        className="flex justify-between w-full px-4 py-3 text-left text-white bg-purple-900/20 hover:bg-purple-800 focus:outline-none"
         onClick={() => setIsOpen(!isOpen)}
       >
         <span>{question}</span>
@@ -53,7 +53,7 @@ function FAQItem({ question, answer }) {
 
 export default function FAQ() {
   return (
-    <section className="bg-black py-20 px-6">
+    <section className="bg-gradient-to-b from-purple-900/20 to-purple-900/20 py-20 px-6">
       <div className="max-w-3xl mx-auto">
         <h2 className="text-4xl font-bold mb-10 text-center">Frequently Asked Questions</h2>
         <div className="space-y-4">

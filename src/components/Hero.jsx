@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export default function Hero() {
   return (
-    <section className="relative bg-black py-12 sm:py-16 md:py-20 px-4 sm:px-6 overflow-hidden">
+    <section className="relative bg-gradient-to-b from-black to-purple-900/20 py-12 sm:py-16 md:py-20 px-4 sm:px-6 overflow-hidden">
       <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between relative">
         {/* Text Content */}
         <div className="max-w-xl mb-10 md:mb-0 text-center md:text-left">

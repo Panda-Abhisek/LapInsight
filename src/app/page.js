@@ -1,3 +1,4 @@
+import React from 'react'
 import Hero from '../components/Hero'
 import DiscoverTech from '../components/DiscoverTech'
 import Specs from '../components/Specs'

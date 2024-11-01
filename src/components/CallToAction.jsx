@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function CallToAction() {
   return (
-    <section className="bg-black py-20 px-6">
+    <section className="bg-gradient-to-b from-purple-900/20 to-purple-900/20 py-20 px-6">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-4xl font-bold mb-6">Find your perfect laptop today!</h2>
         <p className="text-xl mb-8">Discover the latest laptops with cutting-edge features and exceptional performance.</p>
