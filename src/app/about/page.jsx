@@ -1,7 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
 import { Button } from "@/components/ui/button";
-import { CubeIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -231,6 +230,35 @@ export default function Component() {
           </div>
         </div>
       </section>
+
+      {/* cta section */}
+      <section className="relative min-h-[50vh] flex items-center justify-center bg-black text-white px-4 py-16 md:py-24 lg:py-32">
+      <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 to-transparent pointer-events-none" />
+      
+      <div className="relative container mx-auto max-w-4xl">
+        <div className="flex flex-col items-center text-center space-y-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter">
+            Find Your Perfect Laptop
+          </h1>
+          
+          <p className="text-lg md:text-xl text-gray-300 max-w-2xl">
+            Compare Top Models Side by Side and Discover the Best Fit for Your Needs
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 mt-4">
+            <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
+              Start
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-slate-100 hover:bg-purple-700">
+              Learn More
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
     </div>
   );
 }
