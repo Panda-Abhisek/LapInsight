@@ -145,14 +145,14 @@ export default function Component() {
             {/* Right Features */}
             <div className="space-y-12">
               <div className="text-center">
-              <div className="flex items-center justify-center mb-4">
+                <div className="flex items-center justify-center mb-4">
                   <Image
-                      src="/Portraits.png"
-                      alt="Compare icon"
-                      width={64}
-                      height={64}
-                      className="w-8 h-8"
-                    />
+                    src="/Portraits.png"
+                    alt="Compare icon"
+                    width={64}
+                    height={64}
+                    className="w-8 h-8"
+                  />
                 </div>
                 <h4 className="text-white text-xl font-semibold mb-2">
                   Pricing
@@ -163,14 +163,14 @@ export default function Component() {
                 </p>
               </div>
               <div className="text-center">
-              <div className="flex items-center justify-center mb-4">
+                <div className="flex items-center justify-center mb-4">
                   <Image
-                      src="/Portraits.png"
-                      alt="Compare icon"
-                      width={64}
-                      height={64}
-                      className="w-8 h-8"
-                    />
+                    src="/Portraits.png"
+                    alt="Compare icon"
+                    width={64}
+                    height={64}
+                    className="w-8 h-8"
+                  />
                 </div>
                 <h4 className="text-white text-xl font-semibold mb-2">
                   Choose
@@ -182,22 +182,54 @@ export default function Component() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button
-              asChild
-              className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-6 text-lg rounded-lg w-full sm:w-auto"
-            >
-              <Link href="/compare">Start</Link>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              className="border-purple-600 text-purple-600 hover:bg-purple-600/10 px-8 py-6 text-lg rounded-lg w-full sm:w-auto"
-            >
-              <Link href="/learn-more">Learn More {">"}</Link>
-            </Button>
+      {/* USP Section */}
+      <section className="relative py-8 md:py-12 lg:py-16 overflow-hidden">
+        {/* Purple Gradient Background */}
+        <div className="absolute inset-0 bg-purple-900/20"></div>
+
+        <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Main Content Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 items-center mb-16">
+            {/* Center Image */}
+            <div className="relative lg:ml-40">
+              <div className="relative w-4/5 aspect-square">
+                <Image
+                  src="/comparison.png"
+                  alt="Laptop Comparison"
+                  fill
+                  className="object-contain"
+                  priority
+                />
+                {/* Glow Effect */}
+                <div className="absolute inset-0 bg-gradient-radial from-purple-600/20 via-transparent to-transparent"></div>
+              </div>
+            </div>
+            {/* Right Features */}
+            <div className="space-y-12">
+              <div className="text-left">
+                <div className="flex items-center mb-4">
+                  <Image
+                    src="/Portraits.png"
+                    alt="Compare icon"
+                    width={64}
+                    height={64}
+                    className="w-8 h-8"
+                  />
+                </div>
+                <h4 className="text-white text-xl font-semibold mb-2">
+                  Discover the Latest Models and <br />
+                  Their Unique Selling Points
+                </h4>
+                <p className="text-gray-400">
+                  Stay up-to-date with the newest laptops on the <br />
+                  market and learn about their standout features <br />
+                  that set them apart from the competition.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
