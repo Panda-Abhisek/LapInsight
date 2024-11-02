@@ -18,9 +18,9 @@ export default function Specs() {
               <p>Our laptops combine style with functionality, featuring sleek designs that are perfect for any setting.</p>
             </div>
           </div>
-          <button className="mt-8 bg-purple-700 hover:bg-purple-800 text-white font-bold py-3 px-6 rounded-full transition-colors">
+          {/* <button className="mt-8 bg-purple-700 hover:bg-purple-800 text-white font-bold py-3 px-6 rounded-full transition-colors">
             Learn More
-          </button>
+          </button> */}
         </div>
         <div className="lg:w-1/2">
           <Image src="/Compare.png" alt="Laptop Comparison" width={600} height={400} className="object-cover" />
