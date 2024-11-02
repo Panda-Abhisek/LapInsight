@@ -190,12 +190,12 @@ export default function Component() {
         {/* Purple Gradient Background */}
         <div className="absolute inset-0 bg-purple-900/20"></div>
 
-        <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 mb-16">
           {/* Main Content Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 items-center mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-16">
             {/* Center Image */}
-            <div className="relative lg:ml-40">
-              <div className="relative w-4/5 aspect-square">
+            <div className="relative order-first lg:ml-0 xl:ml-40">
+              <div className="relative w-full max-w-[80%] mx-auto lg:max-w-none aspect-square">
                 <Image
                   src="/comparison.png"
                   alt="Laptop Comparison"
@@ -208,28 +208,26 @@ export default function Component() {
               </div>
             </div>
             {/* Right Features */}
-            <div className="space-y-12">
-              <div className="text-left">
-                <div className="flex items-center mb-4">
-                  <Image
-                    src="/Portraits.png"
-                    alt="Compare icon"
-                    width={64}
-                    height={64}
-                    className="w-8 h-8"
-                  />
-                </div>
-                <h4 className="text-white text-xl font-semibold mb-2">
-                  Discover the Latest Models and <br />
-                  Their Unique Selling Points
-                </h4>
-                <p className="text-gray-400">
-                  Stay up-to-date with the newest laptops on the <br />
-                  market and learn about their standout features <br />
-                  that set them apart from the competition.
-                </p>
+            <div className="space-y-8 lg:space-y-12 text-center lg:text-left">
+            <div>
+              <div className="flex items-center justify-center lg:justify-start mb-4">
+                <Image
+                  src="/Portraits.png"
+                  alt="Compare icon"
+                  width={64}
+                  height={64}
+                  className="w-8 h-8"
+                />
               </div>
+              <h4 className="text-white text-xl font-semibold mb-2">
+                Discover the Latest Models and <br />
+                Their Unique Selling Points
+              </h4>
+              <p className="text-gray-400 max-w-md mx-auto lg:mx-0">
+                Stay up-to-date with the newest laptops on the market and learn about their standout features that set them apart from the competition.
+              </p>
             </div>
+          </div>
           </div>
         </div>
       </section>
