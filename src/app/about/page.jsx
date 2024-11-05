@@ -208,57 +208,61 @@ export default function Component() {
             </div>
             {/* Right Features */}
             <div className="space-y-8 lg:space-y-12 text-center lg:text-left">
-            <div>
-              <div className="flex items-center justify-center lg:justify-start mb-4">
-                <Image
-                  src="/Portraits.png"
-                  alt="Compare icon"
-                  width={64}
-                  height={64}
-                  className="w-8 h-8"
-                />
+              <div>
+                <div className="flex items-center justify-center lg:justify-start mb-4">
+                  <Image
+                    src="/Portraits.png"
+                    alt="Compare icon"
+                    width={64}
+                    height={64}
+                    className="w-8 h-8"
+                  />
+                </div>
+                <h4 className="text-white text-xl font-semibold mb-2">
+                  Discover the Latest Models and <br />
+                  Their Unique Selling Points
+                </h4>
+                <p className="text-gray-400 max-w-md mx-auto lg:mx-0">
+                  Stay up-to-date with the newest laptops on the market and
+                  learn about their standout features that set them apart from
+                  the competition.
+                </p>
               </div>
-              <h4 className="text-white text-xl font-semibold mb-2">
-                Discover the Latest Models and <br />
-                Their Unique Selling Points
-              </h4>
-              <p className="text-gray-400 max-w-md mx-auto lg:mx-0">
-                Stay up-to-date with the newest laptops on the market and learn about their standout features that set them apart from the competition.
-              </p>
             </div>
-          </div>
           </div>
         </div>
       </section>
 
       {/* cta section */}
       <section className="relative min-h-[50vh] flex items-center justify-center bg-black text-white px-4 py-16 md:py-24 lg:py-32">
-      <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 to-transparent pointer-events-none" />
-      
-      <div className="relative container mx-auto max-w-4xl">
-        <div className="flex flex-col items-center text-center space-y-6">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter">
-            Find Your Perfect Laptop
-          </h1>
-          
-          <p className="text-lg md:text-xl text-gray-300 max-w-2xl">
-            Compare Top Models Side by Side and Discover the Best Fit for Your Needs
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 mt-4">
-            <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
-              Start
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-slate-100 hover:bg-purple-700">
-              Learn More
-            </Button>
+        <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 to-transparent pointer-events-none" />
+
+        <div className="relative container mx-auto max-w-4xl">
+          <div className="flex flex-col items-center text-center space-y-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter">
+              Find Your Perfect Laptop
+            </h1>
+
+            <p className="text-lg md:text-xl text-gray-300 max-w-2xl">
+              Compare Top Models Side by Side and Discover the Best Fit for Your
+              Needs
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 mt-4">
+              <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
+                Start
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border border-purple-700 text-white bg-transparent "
+              >
+                Learn More
+              </Button>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
     </div>
   );
 }
