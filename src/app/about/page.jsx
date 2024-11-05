@@ -250,7 +250,7 @@ export default function Component() {
 
             <div className="flex flex-col sm:flex-row gap-4 mt-4">
               <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
-                Start
+              <Link href="/compare">Start</Link>
               </Button>
               <Button
                 size="lg"
