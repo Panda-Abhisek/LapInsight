@@ -1,144 +1,143 @@
-'use client'
+"use client";
+import React, { useState, useRef, useEffect } from "react";
+import Link from "next/link";
 
-import React, { useState } from 'react'
-import Link from 'next/link'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Button } from "@/components/ui/button"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+// Mock data for laptop options
+const laptopOptions = [
+  'MacBook Pro 13"',
+  "Dell XPS 15",
+  "Lenovo ThinkPad X1 Carbon",
+  "HP Spectre x360",
+  "ASUS ROG Zephyrus G14",
+  "Acer Swift 5",
+];
 
-const laptops = [
-  {
-    id: "1",
-    name: "TechPro UltraBook",
-    processor: "Intel Core i7-1165G7",
-    ram: "16GB",
-    storage: "512GB SSD",
-    display: "14\" 1920x1080",
-    price: 999.99,
-    bestFor: "Productivity"
-  },
-  {
-    id: "2",
-    name: "GameMaster Pro",
-    processor: "AMD Ryzen 9 5900HX",
-    ram: "32GB",
-    storage: "1TB NVMe SSD",
-    display: "15.6\" 2560x1440 144Hz",
-    price: 1799.99,
-    bestFor: "Gaming"
-  },
-  {
-    id: "3",
-    name: "CreativePro Studio",
-    processor: "Apple M1 Pro",
-    ram: "32GB",
-    storage: "1TB SSD",
-    display: "16\" 3456x2234",
-    price: 2399.99,
-    bestFor: "Creative Work"
-  },
-  {
-    id: "4",
-    name: "EconoBook Air",
-    processor: "Intel Core i5-1135G7",
-    ram: "8GB",
-    storage: "256GB SSD",
-    display: "13.3\" 1920x1080",
-    price: 649.99,
-    bestFor: "Budget"
-  }
-]
+export default function Component() {
+  const [firstProduct, setFirstProduct] = useState("");
+  const [secondProduct, setSecondProduct] = useState("");
+  const [showFirstDropdown, setShowFirstDropdown] = useState(false);
+  const [showSecondDropdown, setShowSecondDropdown] = useState(false);
+  const firstInputRef = useRef(null);
+  const secondInputRef = useRef(null);
 
-function LaptopComparison({ laptop1, laptop2 }) {
-  if (!laptop1 || !laptop2) return null
+  const handleCompare = (e) => {
+    e.preventDefault();
+    console.log("Comparing:", firstProduct, "vs", secondProduct);
+  };
 
-  const specs = ['processor', 'ram', 'storage', 'display', 'price', 'bestFor']
-
-  return (
-    <Table>
-      <TableHeader>
-        <TableRow>
-          <TableHead className="w-[200px]">Specification</TableHead>
-          <TableHead>{laptop1.name}</TableHead>
-          <TableHead>{laptop2.name}</TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        {specs.map((spec) => (
-          <TableRow key={spec}>
-            <TableCell className="font-medium capitalize">{spec}</TableCell>
-            <TableCell>{spec === 'price' ? `$${laptop1[spec].toFixed(2)}` : laptop1[spec]}</TableCell>
-            <TableCell>{spec === 'price' ? `$${laptop2[spec].toFixed(2)}` : laptop2[spec]}</TableCell>
-          </TableRow>
-        ))}
-      </TableBody>
-    </Table>
-  )
-}
-
-export default function ComparePage() {
-  const [selectedLaptop1, setSelectedLaptop1] = useState('')
-  const [selectedLaptop2, setSelectedLaptop2] = useState('')
-  const [showComparison, setShowComparison] = useState(false)
-
-  const handleCompare = () => {
-    if (selectedLaptop1 && selectedLaptop2) {
-      setShowComparison(true)
+  const handleClickOutside = (event) => {
+    if (
+      firstInputRef.current &&
+      !firstInputRef.current.contains(event.target)
+    ) {
+      setShowFirstDropdown(false);
     }
-  }
+    if (
+      secondInputRef.current &&
+      !secondInputRef.current.contains(event.target)
+    ) {
+      setShowSecondDropdown(false);
+    }
+  };
 
-  const laptop1 = laptops.find(laptop => laptop.id === selectedLaptop1)
-  const laptop2 = laptops.find(laptop => laptop.id === selectedLaptop2)
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const renderDropdown = (options, setProduct, setShowDropdown) => (
+    <ul className="absolute z-10 w-full bg-white border border-gray-300 rounded-lg mt-1 max-h-60 overflow-auto">
+      {options.map((option, index) => (
+        <li
+          key={index}
+          className="px-4 py-2 hover:bg-purple-100 cursor-pointer text-gray-800"
+          onClick={() => {
+            setProduct(option);
+            setShowDropdown(false);
+          }}
+        >
+          {option}
+        </li>
+      ))}
+    </ul>
+  );
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      <div className="absolute inset-0 bg-purple-900/20"></div>
-      <main className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold text-purple-700 mb-6">Compare Laptops</h1>
-        <p className="text-lg mb-8">Select laptops to compare their specifications and features.</p>
-        
-        <div className="bg-white shadow-md rounded-lg p-6">
-          <div className="flex flex-col items-center gap-4 mb-8">
-            <Select value={selectedLaptop1} onValueChange={setSelectedLaptop1}>
-              <SelectTrigger className="w-[250px]">
-                <SelectValue placeholder="Select first laptop" />
-              </SelectTrigger>
-              <SelectContent>
-                {laptops.map((laptop) => (
-                  <SelectItem key={laptop.id} value={laptop.id}>{laptop.name}</SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-            <Select value={selectedLaptop2} onValueChange={setSelectedLaptop2}>
-              <SelectTrigger className="w-[250px]">
-                <SelectValue placeholder="Select second laptop" />
-              </SelectTrigger>
-              <SelectContent>
-                {laptops.map((laptop) => (
-                  <SelectItem key={laptop.id} value={laptop.id}>{laptop.name}</SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-            <Button 
-              onClick={handleCompare} 
-              disabled={!selectedLaptop1 || !selectedLaptop2}
-              className="w-[250px] bg-purple-700 text-white hover:bg-purple-800 transition-colors"
-            >
-              Compare
-            </Button>
+    <div className="bg-gradient-to-b from-black via-purple-900/20 to-black min-h-screen">
+      <div className="max-w-3xl mx-auto px-4 py-6 sm:py-8 lg:py-12">
+        <h1 className="text-xl sm:text-2xl font-semibold text-purple-700 mb-3 sm:mb-4">
+          Compare Laptops
+        </h1>
+
+        <p className="text-sm sm:text-base text-gray-300 mb-4 sm:mb-6">
+          Select two laptops and click the &quot;Compare&quot; button. After
+          that, you will be able to pick their configurations (such as CPU, RAM,
+          etc.) on the comparison page itself.
+        </p>
+
+        <form onSubmit={handleCompare} className="space-y-4 sm:space-y-6">
+          <div className="space-y-4 sm:space-y-6">
+            <div className="relative" ref={firstInputRef}>
+              <input
+                type="text"
+                value={firstProduct}
+                onChange={(e) => setFirstProduct(e.target.value)}
+                onFocus={() => setShowFirstDropdown(true)}
+                placeholder="Enter the name of the first product to search"
+                className="w-full p-2 sm:p-3 text-sm sm:text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-700 text-gray-800"
+              />
+              {showFirstDropdown &&
+                renderDropdown(
+                  laptopOptions,
+                  setFirstProduct,
+                  setShowFirstDropdown
+                )}
+            </div>
+
+            <div className="text-center text-base sm:text-lg font-semibold text-purple-700">
+              VS
+            </div>
+
+            <div className="relative" ref={secondInputRef}>
+              <input
+                type="text"
+                value={secondProduct}
+                onChange={(e) => setSecondProduct(e.target.value)}
+                onFocus={() => setShowSecondDropdown(true)}
+                placeholder="Enter the name of the second product to search"
+                className="w-full p-2 sm:p-3 text-sm sm:text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-800"
+              />
+              {showSecondDropdown &&
+                renderDropdown(
+                  laptopOptions,
+                  setSecondProduct,
+                  setShowSecondDropdown
+                )}
+            </div>
           </div>
+
           
-          {showComparison ? (
-            <div className="overflow-x-auto">
-              <LaptopComparison laptop1={laptop1} laptop2={laptop2} />
-            </div>
-          ) : (
-            <div className="text-center">
-              <p className="text-gray-600 mb-4">Please select two laptops from the dropdown menus above and click the Compare button to see a detailed comparison.</p>
-            </div>
-          )}
-        </div>
-      </main>
+            <button
+              type="submit"
+              className="w-full sm:w-auto bg-purple-700 text-white px-4 sm:px-6 py-2 rounded-md text-sm sm:text-base font-medium hover:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition-colors duration-200"
+            >
+              COMPARE
+            </button>
+          
+        </form>
+
+        <p className="mt-4 sm:mt-6 text-xs sm:text-sm text-gray-400">
+          <span className="text-red-600">*</span>
+          Haven&apos;t found the laptop you&apos;re looking for? Let us know via
+          the{" "}
+          <a href="#" className="text-purple-400 hover:underline">
+            feedback form
+          </a>
+          .
+        </p>
+      </div>
     </div>
-  )
+  );
 }
