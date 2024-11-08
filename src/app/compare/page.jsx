@@ -4,7 +4,7 @@ import Link from "next/link";
 
 // Mock data for laptop options
 const laptopOptions = [
-  'MacBook Pro 13"',
+  'MacBook Pro 16',
   "Dell XPS 15",
   "Lenovo ThinkPad X1 Carbon",
   "HP Spectre x360",
@@ -118,14 +118,14 @@ export default function Component() {
             </div>
           </div>
 
-          
+          <Link href="/comparisonOne" passHref>
             <button
               type="submit"
               className="w-full sm:w-auto bg-purple-700 text-white px-4 sm:px-6 py-2 rounded-md text-sm sm:text-base font-medium hover:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition-colors duration-200"
             >
               COMPARE
             </button>
-          
+          </Link>
         </form>
 
         <p className="mt-4 sm:mt-6 text-xs sm:text-sm text-gray-400">
