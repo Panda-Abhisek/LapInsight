@@ -1,9 +1,25 @@
-"use client"
+"use client";
 
-import React from 'react'
-import { Laptop2, Cpu, Layers, MemoryStick, Monitor, Battery, Wifi, Thermometer, Package } from "lucide-react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Progress } from "@/components/ui/progress"
+import React from "react";
+import {
+  Laptop2,
+  Cpu,
+  Layers,
+  MemoryStick,
+  Monitor,
+  Battery,
+  Wifi,
+  Thermometer,
+  Package,
+} from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
 import {
   ResponsiveContainer,
   RadarChart,
@@ -12,7 +28,7 @@ import {
   PolarRadiusAxis,
   Radar,
   Legend,
-} from 'recharts'
+} from "recharts";
 
 const laptops = [
   {
@@ -129,189 +145,273 @@ const laptops = [
       score: 82,
     },
   },
-]
+];
 
 const chartData = [
-  { category: 'CPU', MacBookPro16: laptops[0].performance.cpu.score, DellXPS15: laptops[1].performance.cpu.score },
-  { category: 'GPU', MacBookPro16: laptops[0].performance.gpu.score, DellXPS15: laptops[1].performance.gpu.score },
-  { category: 'RAM', MacBookPro16: laptops[0].performance.ram.score, DellXPS15: laptops[1].performance.ram.score },
-  { category: 'Display', MacBookPro16: laptops[0].display.score, DellXPS15: laptops[1].display.score },
-  { category: 'Battery', MacBookPro16: laptops[0].battery.score, DellXPS15: laptops[1].battery.score },
-  { category: 'Storage', MacBookPro16: laptops[0].storage.score, DellXPS15: laptops[1].storage.score },
-  { category: 'Connectivity', MacBookPro16: laptops[0].connectivity.score, DellXPS15: laptops[1].connectivity.score },
-  { category: 'Thermals', MacBookPro16: laptops[0].thermals.score, DellXPS15: laptops[1].thermals.score },
-]
+  {
+    category: "CPU",
+    MacBookPro16: laptops[0].performance.cpu.score,
+    DellXPS15: laptops[1].performance.cpu.score,
+  },
+  {
+    category: "GPU",
+    MacBookPro16: laptops[0].performance.gpu.score,
+    DellXPS15: laptops[1].performance.gpu.score,
+  },
+  {
+    category: "RAM",
+    MacBookPro16: laptops[0].performance.ram.score,
+    DellXPS15: laptops[1].performance.ram.score,
+  },
+  {
+    category: "Display",
+    MacBookPro16: laptops[0].display.score,
+    DellXPS15: laptops[1].display.score,
+  },
+  {
+    category: "Battery",
+    MacBookPro16: laptops[0].battery.score,
+    DellXPS15: laptops[1].battery.score,
+  },
+  {
+    category: "Storage",
+    MacBookPro16: laptops[0].storage.score,
+    DellXPS15: laptops[1].storage.score,
+  },
+  {
+    category: "Connectivity",
+    MacBookPro16: laptops[0].connectivity.score,
+    DellXPS15: laptops[1].connectivity.score,
+  },
+  {
+    category: "Thermals",
+    MacBookPro16: laptops[0].thermals.score,
+    DellXPS15: laptops[1].thermals.score,
+  },
+];
 
 export default function Component() {
   return (
-    <div className="container mx-auto p-4 space-y-8">
-      <div className="text-center space-y-2">
-        <h1 className="text-3xl font-bold">Laptop Comparison</h1>
-        <p className="text-muted-foreground">Detailed analysis and comparison of high-end laptops</p>
-      </div>
+    <div className="bg-gradient-to-b from-black via-purple-900/20 to-black">
+      <div className="container mx-auto p-4 space-y-8">
+        <div className="text-center space-y-2">
+          <h1 className="text-3xl font-bold">Laptop Comparison</h1>
+          <p className="text-muted-foreground">
+            Detailed analysis and comparison of high-end laptops
+          </p>
+        </div>
 
-      <Card className="w-full">
-        <CardHeader>
-          <CardTitle>Performance Comparison</CardTitle>
-          <CardDescription>Radar chart comparing key metrics</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="h-[400px] w-full">
-            <ResponsiveContainer width="100%" height="100%">
-              <RadarChart data={chartData}>
-                <PolarGrid />
-                <PolarAngleAxis dataKey="category" />
-                <PolarRadiusAxis angle={30} domain={[0, 100]} />
-                <Radar name="MacBook Pro 16" dataKey="MacBookPro16" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
-                <Radar name="Dell XPS 15" dataKey="DellXPS15" stroke="#82ca9d" fill="#82ca9d" fillOpacity={0.6} />
-                <Legend />
-              </RadarChart>
-            </ResponsiveContainer>
-          </div>
-        </CardContent>
-      </Card>
+        <Card className="w-full bg-transparent">
+          <CardHeader>
+            <CardTitle className="text-white">Performance Comparison</CardTitle>
+            <CardDescription>Radar chart comparing key metrics</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="h-[400px] w-full">
+              <ResponsiveContainer width="100%" height="100%">
+                <RadarChart data={chartData}>
+                  <PolarGrid />
+                  <PolarAngleAxis dataKey="category" />
+                  <PolarRadiusAxis angle={30} domain={[0, 100]} />
+                  <Radar
+                    name="MacBook Pro 16"
+                    dataKey="MacBookPro16"
+                    stroke="#8884d8"
+                    fill="#8884d8"
+                    fillOpacity={0.6}
+                  />
+                  <Radar
+                    name="Dell XPS 15"
+                    dataKey="DellXPS15"
+                    stroke="#82ca9d"
+                    fill="#82ca9d"
+                    fillOpacity={0.6}
+                  />
+                  <Legend />
+                </RadarChart>
+              </ResponsiveContainer>
+            </div>
+          </CardContent>
+        </Card>
 
-      <div className="grid md:grid-cols-2 gap-8">
-        {laptops.map((laptop, index) => (
-          <Card key={index} className="relative">
-            <CardHeader>
-              <CardTitle>{laptop.name}</CardTitle>
-              <CardDescription>Starting at ${laptop.price}</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="space-y-4">
-                <h2 className="text-xl font-semibold">Performance</h2>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <Cpu className="w-4 h-4" />
-                    <span className="font-medium">CPU</span>
+        <div className="grid md:grid-cols-2 gap-8">
+          {laptops.map((laptop, index) => (
+            <Card key={index} className="relative mb-20 bg-transparent text-white">
+              <CardHeader>
+                <CardTitle>{laptop.name}</CardTitle>
+                <CardDescription>Starting at ${laptop.price}</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div className="space-y-4">
+                  <h2 className="text-xl font-semibold">Performance</h2>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2">
+                      <Cpu className="w-4 h-4" />
+                      <span className="font-medium">CPU</span>
+                    </div>
+                    <div className="text-sm space-y-1">
+                      <p>{laptop.performance.cpu.name}</p>
+                      <p className="text-muted-foreground">
+                        {laptop.performance.cpu.cores},{" "}
+                        {laptop.performance.cpu.speed}
+                      </p>
+                      <Progress
+                        value={laptop.performance.cpu.score}
+                        className="h-2"
+                        indicatorColor="bg-purple-700/60"
+                      />
+                    </div>
                   </div>
-                  <div className="text-sm space-y-1">
-                    <p>{laptop.performance.cpu.name}</p>
-                    <p className="text-muted-foreground">{laptop.performance.cpu.cores}, {laptop.performance.cpu.speed}</p>
-                    <Progress value={laptop.performance.cpu.score} className="h-2" />
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2">
+                      <Layers className="w-4 h-4" />
+                      <span className="font-medium">GPU</span>
+                    </div>
+                    <div className="text-sm space-y-1">
+                      <p>{laptop.performance.gpu.name}</p>
+                      <p className="text-muted-foreground">
+                        {laptop.performance.gpu.memory}
+                      </p>
+                      <Progress
+                        value={laptop.performance.gpu.score}
+                        className="h-2"
+                        indicatorColor="bg-purple-700/60"
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2">
+                      <MemoryStick className="w-4 h-4" />
+                      <span className="font-medium">RAM</span>
+                    </div>
+                    <div className="text-sm space-y-1">
+                      <p>
+                        {laptop.performance.ram.size}{" "}
+                        {laptop.performance.ram.type}
+                      </p>
+                      <p className="text-muted-foreground">
+                        {laptop.performance.ram.speed}
+                      </p>
+                      <Progress
+                        value={laptop.performance.ram.score}
+                        className="h-2"
+                        indicatorColor="bg-purple-700/60"
+                      />
+                    </div>
                   </div>
                 </div>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <Layers className="w-4 h-4" />
-                    <span className="font-medium">GPU</span>
-                  </div>
-                  <div className="text-sm space-y-1">
-                    <p>{laptop.performance.gpu.name}</p>
-                    <p className="text-muted-foreground">{laptop.performance.gpu.memory}</p>
-                    <Progress value={laptop.performance.gpu.score} className="h-2" />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <MemoryStick className="w-4 h-4" />
-                    <span className="font-medium">RAM</span>
-                  </div>
-                  <div className="text-sm space-y-1">
-                    <p>{laptop.performance.ram.size} {laptop.performance.ram.type}</p>
-                    <p className="text-muted-foreground">{laptop.performance.ram.speed}</p>
-                    <Progress value={laptop.performance.ram.score} className="h-2" />
-                  </div>
-                </div>
-              </div>
 
-              <div className="space-y-4">
-                <h2 className="text-xl font-semibold">Display</h2>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <Monitor className="w-4 h-4" />
-                    <span className="font-medium">Display</span>
-                  </div>
-                  <div className="text-sm space-y-1">
-                    <p>Resolution: {laptop.display.resolution}</p>
-                    <p>Refresh Rate: {laptop.display.refreshRate}</p>
-                    <p>Brightness: {laptop.display.brightness}</p>
-                    <p>Color Gamut: {laptop.display.colorGamut}</p>
-                    <Progress value={laptop.display.score} className="h-2" />
+                <div className="space-y-4">
+                  <h2 className="text-xl font-semibold">Display</h2>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2">
+                      <Monitor className="w-4 h-4" />
+                      <span className="font-medium">Display</span>
+                    </div>
+                    <div className="text-sm space-y-1">
+                      <p>Resolution: {laptop.display.resolution}</p>
+                      <p>Refresh Rate: {laptop.display.refreshRate}</p>
+                      <p>Brightness: {laptop.display.brightness}</p>
+                      <p>Color Gamut: {laptop.display.colorGamut}</p>
+                      <Progress value={laptop.display.score} className="h-2" indicatorColor="bg-purple-700/60"/>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="space-y-4">
-                <h2 className="text-xl font-semibold">Build</h2>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <Laptop2 className="w-4 h-4" />
-                    <span className="font-medium">Build Quality</span>
-                  </div>
-                  <div className="text-sm space-y-1">
-                    <p>Material: {laptop.build.material}</p>
-                    <p>Weight: {laptop.build.weight}</p>
-                    <p>Dimensions: {laptop.build.dimensions}</p>
-                    <Progress value={laptop.build.score} className="h-2" />
+                <div className="space-y-4">
+                  <h2 className="text-xl font-semibold">Build</h2>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2">
+                      <Laptop2 className="w-4 h-4" />
+                      <span className="font-medium">Build Quality</span>
+                    </div>
+                    <div className="text-sm space-y-1">
+                      <p>Material: {laptop.build.material}</p>
+                      <p>Weight: {laptop.build.weight}</p>
+                      <p>Dimensions: {laptop.build.dimensions}</p>
+                      <Progress value={laptop.build.score} className="h-2" indicatorColor="bg-purple-700/60"/>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="space-y-4">
-                <h2 className="text-xl font-semibold">Battery</h2>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <Battery className="w-4 h-4" />
-                    <span className="font-medium">Battery</span>
-                  </div>
-                  <div className="text-sm space-y-1">
-                    <p>Capacity: {laptop.battery.capacity}</p>
-                    <p className="text-muted-foreground">Up to {laptop.battery.duration}</p>
-                    <Progress value={laptop.battery.score} className="h-2" />
+                <div className="space-y-4">
+                  <h2 className="text-xl font-semibold">Battery</h2>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2">
+                      <Battery className="w-4 h-4" />
+                      <span className="font-medium">Battery</span>
+                    </div>
+                    <div className="text-sm space-y-1">
+                      <p>Capacity: {laptop.battery.capacity}</p>
+                      <p className="text-muted-foreground">
+                        Up to {laptop.battery.duration}
+                      </p>
+                      <Progress value={laptop.battery.score} className="h-2" indicatorColor="bg-purple-700/60"/>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="space-y-4">
-                <h2 className="text-xl font-semibold">Storage</h2>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <Package className="w-4 h-4" />
-                    <span className="font-medium">Storage</span>
-                  </div>
-                  <div className="text-sm space-y-1">
-                    <p>{laptop.storage.capacity} {laptop.storage.type}</p>
-                    <p className="text-muted-foreground">Read speeds up to {laptop.storage.speed}</p>
-                    <Progress value={laptop.storage.score} className="h-2" />
+                <div className="space-y-4">
+                  <h2 className="text-xl font-semibold">Storage</h2>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2">
+                      <Package className="w-4 h-4" />
+                      <span className="font-medium">Storage</span>
+                    </div>
+                    <div className="text-sm space-y-1">
+                      <p>
+                        {laptop.storage.capacity} {laptop.storage.type}
+                      </p>
+                      <p className="text-muted-foreground">
+                        Read speeds up to {laptop.storage.speed}
+                      </p>
+                      <Progress value={laptop.storage.score} className="h-2" indicatorColor="bg-purple-700/60"/>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="space-y-4">
-                <h2 className="text-xl font-semibold">Connectivity</h2>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <Wifi className="w-4 h-4" />
-                    <span className="font-medium">Connectivity</span>
-                  </div>
-                  <div className="text-sm space-y-1">
-                    <p>Ports: {laptop.connectivity.ports.join(", ")}</p>
-                    <p className="text-muted-foreground">{laptop.connectivity.wireless}</p>
-                    <Progress value={laptop.connectivity.score} className="h-2" />
+                <div className="space-y-4">
+                  <h2 className="text-xl font-semibold">Connectivity</h2>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2">
+                      <Wifi className="w-4 h-4" />
+                      <span className="font-medium">Connectivity</span>
+                    </div>
+                    <div className="text-sm space-y-1">
+                      <p>Ports: {laptop.connectivity.ports.join(", ")}</p>
+                      <p className="text-muted-foreground">
+                        {laptop.connectivity.wireless}
+                      </p>
+                      <Progress
+                        value={laptop.connectivity.score}
+                        className="h-2"
+                        indicatorColor="bg-purple-700/60"
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="space-y-4">
-                <h2 className="text-xl font-semibold">Thermals</h2>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <Thermometer className="w-4 h-4" />
-                    <span className="font-medium">Thermals</span>
-                  </div>
-                  <div className="text-sm space-y-1">
-                    <p>Max Temp: {laptop.thermals.maxTemp}</p>
-                    <p className="text-muted-foreground">Noise Level: {laptop.thermals.noise}</p>
-                    <Progress value={laptop.thermals.score} className="h-2" />
+                <div className="space-y-4">
+                  <h2 className="text-xl font-semibold">Thermals</h2>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2">
+                      <Thermometer className="w-4 h-4" />
+                      <span className="font-medium">Thermals</span>
+                    </div>
+                    <div className="text-sm space-y-1">
+                      <p>Max Temp: {laptop.thermals.maxTemp}</p>
+                      <p className="text-muted-foreground">
+                        Noise Level: {laptop.thermals.noise}
+                      </p>
+                      <Progress value={laptop.thermals.score} className="h-2" indicatorColor="bg-purple-700/60"/>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </div>
     </div>
-  )
+  );
 }
