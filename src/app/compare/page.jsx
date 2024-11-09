@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
+import { useRouter } from 'next/navigation';
 import Link from "next/link";
 
 // Mock data for laptop options
@@ -19,10 +20,22 @@ export default function Component() {
   const [showSecondDropdown, setShowSecondDropdown] = useState(false);
   const firstInputRef = useRef(null);
   const secondInputRef = useRef(null);
+  const router = useRouter();
 
   const handleCompare = (e) => {
     e.preventDefault();
     console.log("Comparing:", firstProduct, "vs", secondProduct);
+    
+    // Check if the selected laptops are MacBook Pro 16 and Dell XPS 15
+    if (
+      (firstProduct === "MacBook Pro 16" && secondProduct === "Dell XPS 15") ||
+      (firstProduct === "Dell XPS 15" && secondProduct === "MacBook Pro 16")
+    ) {
+      router.push('/compare/comparisonOne');
+    } else {
+      // Handle other comparisons or show a message
+      alert("Comparison for these models is not available yet.");
+    }
   };
 
   const handleClickOutside = (event) => {
@@ -118,14 +131,12 @@ export default function Component() {
             </div>
           </div>
 
-          <Link href="/comparisonOne" passHref>
-            <button
-              type="submit"
-              className="w-full sm:w-auto bg-purple-700 text-white px-4 sm:px-6 py-2 mt-2 rounded-md text-sm sm:text-base font-medium hover:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition-colors duration-200"
-            >
-              COMPARE
-            </button>
-          </Link>
+          <button
+            type="submit"
+            className="w-full sm:w-auto bg-purple-700 text-white px-4 sm:px-6 py-2 mt-2 rounded-md text-sm sm:text-base font-medium hover:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition-colors duration-200"
+          >
+            COMPARE
+          </button>
         </form>
 
         <p className="mt-4 sm:mt-6 text-xs sm:text-sm text-gray-400">
