@@ -14,7 +14,7 @@ export default function CallToAction() {
         </p>
         <Link href="/about" passHref>
           <button className="bg-purple-700 hover:bg-purple-800 text-white font-bold py-3 px-6 rounded-full transition-colors">
-            Learn More
+            About
           </button>
         </Link>
       </div>
